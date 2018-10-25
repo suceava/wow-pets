@@ -1,0 +1,22 @@
+{
+  "name": "wow-pets",
+  "version": "1.0.0",
+  "description": "WoW Pets Alexa skill",
+  "author": "Dan Suceava",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf dist",
+    "copy-modules": "cp -R node_modules dist",
+    "prep": "npm run build && npm run copy-modules && npm run zip",
+    "test": "test",
+    "zip": "echo MUST ZIP FILES"
+  },
+  "dependencies": {
+    "ask-sdk": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.11.7"
+  }
+}

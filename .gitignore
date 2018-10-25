@@ -1,0 +1,7 @@
+# Logs
+npm-debug.log*
+
+lambda/dist
+lambda/node_modules
+
+*.zip
