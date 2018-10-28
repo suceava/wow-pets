@@ -12,16 +12,20 @@ export interface Pet {
   weakDefense: string;
 };
 
-export interface PetData {
+interface PetData {
   [key: string]: Pet
 };
 
-export const petData: PetData = data as PetData;
-export const petArray: Array<Pet> = R.props(R.keys(data), data);
+const petData: PetData = data as PetData;
+const petArray: Array<Pet> = R.props(R.keys(data), data);
 
 export const getPet = (petType: string): Pet => {
   return petData[petType];
 };
+
+export const getPets = (): Array<Pet> => {
+  return petArray;
+}
 
 // does the pet have a strong attack against the petType?
 const hasStrongAttackAgainst = (petType: string, pet: Pet): boolean => {

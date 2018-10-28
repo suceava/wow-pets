@@ -11,6 +11,7 @@ import {
 import {
   SKILL_NAME
 } from './constants';
+import { DescribePetTypeIntentHandler } from './handlers/describePetTypeIntentHandler';
 import { ListPetTypesIntentHandler } from './handlers/listPetTypesIntentHandler';
 import { StrongPetTypesIntentHandler } from './handlers/strongPetTypesIntentHandler';
 import { WeakPetTypesIntentHandler } from './handlers/weakPetTypesIntentHandler';
@@ -20,7 +21,7 @@ const LaunchRequestHandler : RequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput : HandlerInput) : Response {
-    const speechText = 'Welcome to WoW Pets';
+    const speechText = 'Welcome to WoW Pets!  Ask me to list pet types, or to describe a pet type.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -37,7 +38,8 @@ const HelpIntentHandler : RequestHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput : HandlerInput) : Response {
-    const speechText = 'I can help';
+    const speechText = 'WoW Pets gives you information about WoW battle pets.' +
+      'Say something like "list pet types", or "describe mechanical pets", or "what beats flying pets?", or "what is weak against mechanical?"';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -54,7 +56,7 @@ const CancelAndStopIntentHandler : RequestHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput : HandlerInput) : Response {
-    const speechText = 'Goodbye!';
+    const speechText = 'Thanks for using WoW Pets.  Good hunting!';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -80,7 +82,7 @@ const ErrorHandler : ErrorHandler = {
   },
   handle(handlerInput : HandlerInput, error : Error) : Response {
     console.log(`Error handled: ${error.message}`);
-    const speechText = 'Sorry, I can\'t understand the command. Please say again.';
+    const speechText = 'Sorry, I can\'t understand the command. Please say again.  Ask me to list pet types for a list of valid pets.';
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -97,6 +99,7 @@ export const handler = async (event, context) => {
     skill = SkillBuilders.custom()
       .addRequestHandlers(
         LaunchRequestHandler,
+        DescribePetTypeIntentHandler,
         ListPetTypesIntentHandler,
         StrongPetTypesIntentHandler,
         WeakPetTypesIntentHandler,

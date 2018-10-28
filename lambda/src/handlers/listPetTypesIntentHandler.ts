@@ -5,9 +5,13 @@ import {
 import {
   Response
 } from 'ask-sdk-model';
+import * as R from 'ramda';
 import {
   SKILL_NAME
 } from '../constants';
+import {
+  getPets
+} from '../data';
 
 export const ListPetTypesIntentHandler : RequestHandler = {
   canHandle(handlerInput : HandlerInput) : boolean {
@@ -15,7 +19,11 @@ export const ListPetTypesIntentHandler : RequestHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'ListPetTypesIntent';
   },
   handle(handlerInput : HandlerInput) : Response {
-    const speechText = 'There are 10 types of battle pets';
+    const petArray = getPets();
+    const petNames = R.join(',', R.map((pet) => pet.name, petArray));
+
+    const speechText = `There are ${petArray.length} types of battle pets: ${petNames}.` +
+      ` Ask me to describe a specific pet type for more information.`;
 
     return handlerInput.responseBuilder
       .speak(speechText)

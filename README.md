@@ -1,3 +1,3 @@
 # WoW Pets Alexa Skill
 
-Ask Alexa about pet family strengths and weakneses
+Ask Alexa about pet family strengths and weaknesses
