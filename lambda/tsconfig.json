@@ -3,6 +3,7 @@
     "lib": ["es5", "es6"],
     "moduleResolution": "node",
     "outDir": "dist",
+    "resolveJsonModule": true,
     "target": "es5"
   },
   "include": [

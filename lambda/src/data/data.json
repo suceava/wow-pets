@@ -1,0 +1,82 @@
+{
+  "aquatic": {
+    "name": "aquatic",
+    "special": "Harmful DoT effects reduced by 50%",
+    "strongAttack": "elemental",
+    "strongDefense": "undead",
+    "weakAttack": "magic",
+    "weakDefense": "flying"
+  },
+  "beast": {
+    "name": "beast",
+    "special": "25% extra damage when under 50% health",
+    "strongAttack": "critter",
+    "strongDefense": "humanoid",
+    "weakAttack": "flying",
+    "weakDefense": "mechanical"
+  },
+  "critter": {
+    "name": "critter",
+    "special": "Immune to roots, stuns, and sleep effects",
+    "strongAttack": "undead",
+    "strongDefense": "elemental",
+    "weakAttack": "humanoid",
+    "weakDefense": "beast"
+  },
+  "dragonkin": {
+    "name": "dragonkin",
+    "special": "Deals 50% extra damage with targets under 50%",
+    "strongAttack": "magic",
+    "strongDefense": "flying",
+    "weakAttack": "undead",
+    "weakDefense": "humanoid"
+  },
+  "elemental": {
+    "name": "elemental",
+    "special": "Ignore all negative weather effects",
+    "strongAttack": "mechanical",
+    "strongDefense": "mechanical",
+    "weakAttack": "critter",
+    "weakDefense": "aquatic"
+  },
+  "flying": {
+    "name": "flying",
+    "special": "50% extra speed when above 50% health",
+    "strongAttack": "aquatic",
+    "strongDefense": "beast",
+    "weakAttack": "dragonkin",
+    "weakDefense": "magic"
+  },
+  "humanoid": {
+    "name": "humanoid",
+    "special": "Recover 5% of max health with every successful attack",
+    "strongAttack": "dragonkin",
+    "strongDefense": "critter",
+    "weakAttack": "beast",
+    "weakDefense": "undead"
+  },
+  "magic": {
+    "name": "magic",
+    "special": "Cannot lose more than 35% of their max health at once",
+    "strongAttack": "flying",
+    "strongDefense": "aquatic",
+    "weakAttack": "mechanical",
+    "weakDefense": "dragonkin"
+  },
+  "mechanical": {
+    "name": "mechanical",
+    "special": "Comes back to life once per battle to 25% health",
+    "strongAttack": "beast",
+    "strongDefense": "magic",
+    "weakAttack": "elemental",
+    "weakDefense": "elemental"
+  },
+  "undead": {
+    "name": "undead",
+    "special": "Comes back to life for 1 round when killed",
+    "strongAttack": "humanoid",
+    "strongDefense": "dragonkin",
+    "weakAttack": "aquatic",
+    "weakDefense": "critter"
+  }
+}
