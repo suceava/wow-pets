@@ -31,6 +31,14 @@ const hasStrongAttackAgainst = (petType: string, pet: Pet): boolean => {
 const hasStrongDefenseAgainst = (petType: string, pet: Pet): boolean => {
   return pet.strongDefense === petType;
 };
+// does the pet have a weak attack against the petType?
+const hasWeakAttackAgainst = (petType: string, pet: Pet): boolean => {
+  return pet.weakAttack === petType;
+};
+// does the pet have a weak defense against the petType?
+const hasWeakDefenseAgainst = (petType: string, pet: Pet): boolean => {
+  return pet.weakDefense === petType;
+};
 
 // get the pet that has a strong attack against the petType
 export const getPetWithStrongAttackAgainst = (petType: string): Pet => {
@@ -42,4 +50,12 @@ export const getPetWithStrongDefenseAgainst = (petType: string): Pet => {
   return R.find(R.curry(hasStrongDefenseAgainst)(petType), petArray);
 };
 
+// get the pet that has a weak attack against the petType
+export const getPetWithWeakAttackAgainst = (petType: string): Pet => {
+  return R.find(R.curry(hasWeakAttackAgainst)(petType), petArray);
+};
 
+// get the pet that has a weak defense against the petType
+export const getPetWithWeakDefenseAgainst = (petType: string): Pet => {
+  return R.find(R.curry(hasWeakDefenseAgainst)(petType), petArray);
+};

@@ -13,6 +13,7 @@ import {
 } from './constants';
 import { ListPetTypesIntentHandler } from './handlers/listPetTypesIntentHandler';
 import { StrongPetTypesIntentHandler } from './handlers/strongPetTypesIntentHandler';
+import { WeakPetTypesIntentHandler } from './handlers/weakPetTypesIntentHandler';
 
 const LaunchRequestHandler : RequestHandler = {
   canHandle(handlerInput : HandlerInput) : boolean {
@@ -98,6 +99,7 @@ export const handler = async (event, context) => {
         LaunchRequestHandler,
         ListPetTypesIntentHandler,
         StrongPetTypesIntentHandler,
+        WeakPetTypesIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler
